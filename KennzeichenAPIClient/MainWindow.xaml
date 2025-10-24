@@ -5,25 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KennzeichenAPIClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Background="LightSlateGray"
+        Loaded="Window_Loaded"
+        
+        >
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Grid.Row="0" Grid.Column="0" >Id</Label>
+            <Label Grid.Row="0" Grid.Column="1" >Kennzeichen</Label>
+            <Label Grid.Row="0" Grid.Column="2" >Ort</Label>
+            <Label Grid.Row="0" Grid.Column="3" >Kreis</Label>
+            <Label Grid.Row="0" Grid.Column="4" >Bundesland</Label>
+            <Label Grid.Row="0" Grid.Column="5" >Wappenlink</Label>
+
+            <TextBox x:Name="txtId" Grid.Row="1" Grid.Column="0" />
+            <TextBox x:Name="txtKen" Grid.Row="1" Grid.Column="1" />
+            <TextBox x:Name="txtOrt" Grid.Row="1" Grid.Column="2" />
+            <TextBox x:Name="txtKreis" Grid.Row="1" Grid.Column="3" />
+            <TextBox x:Name="txtBund" Grid.Row="1" Grid.Column="4" />
+            <TextBox x:Name="txtlink" Grid.Row="1" Grid.Column="5" />
+
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnLö" Grid.Row="2" Grid.Column="0" Content="Löschen" Click="btnLö_Click"></Button> 
+            <Button x:Name="btnÄ" Grid.Row="2" Grid.Column="1" Content="Ändern" Click="btnÄ_Click"></Button> 
+            <Button x:Name="btnNew" Grid.Row="2" Grid.Column="2" Content="Neu" Click="btnNew_Click"></Button> 
+            <Button x:Name="btnHin" Grid.Row="2" Grid.Column="3" Content="Hinzufügen" Click="btnHin_Click"></Button> 
+            <Button x:Name="btnAkt" Grid.Row="2" Grid.Column="4" Content="Aktualisieren" Click="btnAkt_Click"></Button> 
+            <Button x:Name="btnBe" Grid.Row="2" Grid.Column="5" Content="Beenden" Click="btnBe_Click"></Button> 
+  
+        </Grid>
+
+        <Grid Grid.Row="5" Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <Label Grid.Row="0" Grid.Column=""
-            </Grid>
+            <DataGrid x:Name="gridApi" Grid.Row="1" AlternatingRowBackground="LightGray" AlternationCount="3" FontFamily="Arial"  FontSize="13" SelectionChanged="gridApi_SelectionChanged"/>
         </Grid>
+
+        <Grid Grid.Row="6" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <ListBox x:Name="lstApi" Grid.Row="1" Background="LightGray"/>
+        </Grid>
+        
     </Grid>
 </Window>
